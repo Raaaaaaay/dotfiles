@@ -10,6 +10,10 @@ d                   ->      delete selected
 (g + g) + (=G)      ->      Re indent the file from the current line to the end of the file
 
 
+Commands
+
+:y%                 ->      command + yank + 'all lines' range(%)
+
 ------------------------------------------------------------------------------------------
 
 Files
