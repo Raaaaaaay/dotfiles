@@ -8,7 +8,7 @@ General Vim
 
 d                   ->      delete selected
 (g + g) + (=G)      ->      Re indent the file from the current line to the end of the file
-
+CTRL + SHIFT + V    ->      Paste from system clipboard
 
 Commands
 
