@@ -2,6 +2,6 @@
 
 set -e
 
-pip3 install ansible
+pip install ansible
 
 export PATH="$PATH:~/.local/bin"

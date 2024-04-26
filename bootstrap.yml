@@ -10,10 +10,12 @@
         cmd: git submodule update --force --init --recursive --jobs 4
       changed_when: false
 
-    - name: Install packages with apt
+    - name: Install packages with pacman
       become: yes
-      ansible.builtin.apt:
+      community.general.pacman:
         name:
           - git
+          - stow
           - tmux
         state: present
+      when: ansible_distribution == 'Archlinux'
