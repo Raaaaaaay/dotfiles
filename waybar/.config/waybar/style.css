@@ -1,275 +1,189 @@
 * {
-    border: none;
-    border-radius: 0px;
-    font-family: "JetBrainsMono Nerd Font";
-    font-weight: bold;
-    font-size: 13px;
-    min-height: 21px;
+  /* `otf-font-awesome` is required to be installed for icons */
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 13px;
+  min-height: 0;
 }
-
-@import "themes/theme.css";
 
 window#waybar {
-    background: @bar-bg;
-    border-radius: 7px;
+  background: transparent;
+  /*    background-color: rgba(43, 48, 59, 0.5); */
+  /*    border-bottom: 3px solid rgba(100, 114, 125, 0.5); */
+  color: #ffffff;
+  transition-property: background-color;
+  transition-duration: .5s;
 }
 
-tooltip {
-    background: #EAB2C2;
-    color: @main-fg;
-    border-radius: 8px;
-    border-width: 0px;
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+#waybar.empty #window {
+  background-color: transparent;
+}
+
+#workspaces {
+}
+
+#window {
+  margin: 2;
+  padding-left: 8;
+  padding-right: 8;
+  background-color: rgba(0,0,0,0.3);
+  font-size:14px;
+  font-weight: bold;
+}
+
+button {
+  /* Use box-shadow instead of border so the text isn't offset */
+  box-shadow: inset 0 -3px transparent;
+  /* Avoid rounded borders under each button name */
+  border: none;
+  border-radius: 0;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+button:hover {
+  background: inherit;
+  border-top: 2px solid #c9545d;
 }
 
 #workspaces button {
-    box-shadow: none;
-	text-shadow: none;
-    padding: 0px;
-    border-radius: 8px;
-    margin-top: 4px;
-    margin-bottom: 4px;
-    margin-left: 0px;
-    padding-left: 4px;
-    padding-right: 4px;
-    margin-right: 0px;
-    color: #EAB2C2;
-    animation: ws_normal 20s ease-in-out 1;
-}
-
-#workspaces button.persistent{
-    color: #EBDDBC;
-}
-
-#workspaces button.active {
-    /* background: #2B2F38; */
-    color: #EBDDBC;
-    /* margin-left: 1px; 
-    padding-left: 4px;
-    padding-right: 8px;
-    margin-right: 1px; */
-    animation: ws_active 20s ease-in-out 1;
-    /* transition: all 0.4s cubic-bezier(.55,-0.68,.48,1.682); */
-}
-
-#workspaces button.persistent:nth-child(2){
-    color: #EAB2C2;
-}
-
-#workspaces button.persistent:nth-child(3){
-    color: #83A6BF;
+  padding: 0 4px;
+  /*    background-color: rgba(0,0,0,0.3); */
 }
 
 #workspaces button:hover {
-    /* background: @wb-hvr-bg; */
-    color: #D5A5AA;
-    animation: ws_hover 20s ease-in-out 1;
-    transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
 }
 
-#taskbar button {
-    box-shadow: none;
-	text-shadow: none;
-    padding: 0px;
-    border-radius: 8px;
-    margin-top: 4px;
-    margin-bottom: 4px;
-    margin-left: 0px;
-    padding-left: 4px;
-    padding-right: 4px;
-    margin-right: 0px;
-    color: @wb-color;
-    animation: tb_normal 20s ease-in-out 1;
+#workspaces button.focused {
+  /*    box-shadow: inset 0 -2px #c9545d; */
+  background-color: rgba(0,0,0,0.3);
+  color:#c9545d;
+  border-top: 2px solid #c9545d;
 }
 
-#taskbar button.active {
-    background: @wb-act-bg;
-    color: @wb-act-color;
-    margin-left: 2px;
-    padding-left: 11px;
-    padding-right: 11px;
-    margin-right: 2px;
-    animation: tb_active 20s ease-in-out 1;
-    transition: all 0.4s cubic-bezier(.55,-0.68,.48,1.682);
+#workspaces button.urgent {
+  background-color: #eb4d4b;
 }
 
-#taskbar button:hover {
-    background: @wb-hvr-bg;
-    color: @wb-hvr-color;
-    animation: tb_hover 20s ease-in-out 1;
-    transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
+#mode {
+  background-color: #64727D;
+  border-bottom: 3px solid #ffffff;
 }
 
-#custom-weather,
-#custom-weather.severe,
-#custom-weather.sunnyDay,
-#custom-weather.clearNight,
-#custom-weather.cloudyFoggyDay,
-#custom-weather.cloudyFoggyNight,
-#custom-weather.rainyDay,
-#custom-weather.rainyNight,
-#custom-weather.showyIcyDay,
-#custom-weather.snowyIcyNight,
-#custom-weather.default,
-#custom-launcher,
-#backlight,
+#clock,
 #battery,
-#bluetooth,
-#custom-cliphist,
-#clock,
-#custom-cpuinfo,
 #cpu,
-#custom-gpuinfo,
-#idle_inhibitor,
-#custom-keybindhint,
-#language,
 #memory,
-#mpris,
-#network,
-#custom-power,
-#pulseaudio,
-#custom-spotify,
-#taskbar,
-#custom-theme,
-#tray,
-#custom-updates,
-#custom-wallchange,
-#custom-wbar,
-#window,
-#workspaces,
-#custom-l_end,
-#custom-r_end,
-#custom-sl_end,
-#custom-sr_end,
-#custom-rl_end,
-#custom-rr_end {
-    color: @main-fg;
-    background: @main-bg;
-    opacity: 1;
-    margin: 6px 0px 6px 0px;
-    padding-left: 4px;
-    padding-right: 4px;
-    
-}
-
-#custom-weather {
-    color: #8a909e;
-  }
-  
-  #custom-weather.severe {
-    color: #eb937d;
-  }
-  
-  #custom-weather.sunnyDay {
-    color: #c2ca76;
-  }
-  
-  #custom-weather.clearNight {
-    color: #cad3f5;
-  }
-  
-  #custom-weather.cloudyFoggyDay,
-  #custom-weather.cloudyFoggyNight {
-    color: #c2ddda;
-  }
-  
-  #custom-weather.rainyDay,
-  #custom-weather.rainyNight {
-    color: #5aaca5;
-  }
-  
-  #custom-weather.showyIcyDay,
-  #custom-weather.snowyIcyNight {
-    color: #d6e7e5;
-  }
-  
-  #custom-weather.default {
-    color: #dbd9d8;
-  }
-
-
-#tray menu *{
-  color: #EAB2C2;
-}
-
-
-
-#custom-cpuinfo,
-#custom-gpuinfo,
+#disk,
+#temperature,
 #backlight,
-#battery{
-    color: #83A6BF;
-}
-#custom-updates,
-#custom-power,
-#memory,
-#clock,
-#idle_inhibitor{
-    color: #DEC386;
-}
-#custom-power{
-    padding-right: 8px;
-}
 #network,
-#blueooth,
 #pulseaudio,
-#cpu{
-    color: #EAB2C2;
+#wireplumber,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#mpd {
+  margin: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
+  background-color: rgba(0,0,0,0.3);
+  color: #ffffff;
 }
 
-#idle_inhibitor{ 
-    padding-right: 14px;
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+  margin-left: 0;
 }
 
-#custom-launcher{
-    color:@bar-bg;
-    background: #EAB2C2;
-    padding-right: 15px;
-    font-size: 17px;
-    padding-left: 12px;
-    border-radius: 5px;
-    margin-top: 7.5px;
-    margin-bottom: 7.5px;
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+  margin-right: 0;
 }
 
-#workspaces,
-#taskbar {
-    padding: 0px;
+#clock {
+  font-size:14px;
+  font-weight: bold;
 }
 
-#custom-r_end {
-    border-radius: 0px 5px 5px 0px;
-    margin-right: 8px;
-    padding-right: 0px;
+#battery icon {
+  color: red;
 }
 
-#custom-l_end {
-    border-radius: 5px 0px 0px 5px;
-    margin-left: 8px;
-    padding-left: 0px;
+#battery.charging, #battery.plugged {
+  color: #ffffff;
+  background-color: #26A65B;
 }
 
-#custom-sr_end {
-    border-radius: 0px;
-    margin-right: 8px;
-    padding-right: 0px;
+@keyframes blink {
+  to {
+    background-color: #ffffff;
+    color: #000000;
+  }
 }
 
-#custom-sl_end {
-    border-radius: 0px;
-    margin-left: 8px;
-    padding-left: 0px;
+#battery.warning:not(.charging) {
+  background-color: #f53c3c;
+  color: #ffffff;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
-#custom-rr_end {
-    border-radius: 0px 7px 7px 0px;
-    margin-right: 8px;
-    padding-right: 0px;
+#battery.critical:not(.charging) {
+  background-color: #f53c3c;
+  color: #ffffff;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
-#custom-rl_end {
-    border-radius: 7px 0px 0px 7px;
-    margin-left: 8px;
-    padding-left: 0px;
+label:focus {
+  background-color: #000000;
 }
 
+#network.disconnected {
+  background-color: #f53c3c;
+}
 
+#temperature.critical {
+  background-color: #eb4d4b;
+}
+
+#idle_inhibitor.activated {
+  background-color: #ecf0f1;
+  color: #2d3436;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: #eb4d4b;
+}
+
+/*
+
+window#waybar.solo {
+background-color: #FFFFFF;
+}
+
+window#waybar.termite {
+background-color: #3F3F3F;
+}
+
+window#waybar.chromium {
+background-color: #000000;
+border: none;
+}
+ */

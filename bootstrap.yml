@@ -17,5 +17,8 @@
           - git
           - stow
           - tmux
+          - brightnessctl
+          - ttf-jetbrains-mono-nerd
+          - otf-font-awesome
         state: present
       when: ansible_distribution == 'Archlinux'
